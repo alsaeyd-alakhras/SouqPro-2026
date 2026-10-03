@@ -1,6 +1,28 @@
 @extends('layouts.dashboard')
 
-@section('title','Home')
+@section('title', 'Home')
+
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+@endpush
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
+@endpush
+
+@push('scripts')
+    <script src="{{ asset('js/script.js') }}"></script>
+@endpush
+
+@section('list')
+@parent
+<li>Dashboard</li>
+@endsection
+
+{{-- @php
+    $orderCount = 150;
+@endphp --}}
 
 @section('content')
     <!--begin::App Content Header-->
@@ -11,6 +33,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <h3 class="mb-0">Dashboard</h3>
+                    <span>{{ config('souqpro.support_email') }}</span>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
@@ -35,7 +58,7 @@
                     <!--begin::Small Box Widget 1-->
                     <div class="small-box text-bg-primary">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{ $orderCount ?? '0' }}</h3>
 
                             <p>New Orders</p>
                         </div>
@@ -393,3 +416,4 @@
     </div>
     <!--end::App Content-->
 @endsection
+

@@ -12,6 +12,10 @@ class HomeController extends Controller
     public function index()
     {
         // retern response (view, json, redicte)
-        return view('index');
+        $orderCount = 130;
+
+        return view('index',compact('orderCount'));
+        // return view('index',['orderCount' => $orderCount]);
+        // return view('index')->with('orderCount',$orderCount);
     }
 }
